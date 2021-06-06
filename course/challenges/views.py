@@ -1,11 +1,13 @@
+import calendar
+
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 
 
-# Create your views here.
-def january(request):
-    return HttpResponse("Hello January!")
+MONTHS = [calendar.month_name[i].lower() for i in range(1, 13)]
 
 
-def february(request):
-    return HttpResponse("Hello February")
+def monthly_challenge(request, month):
+    if month in MONTHS:
+        return HttpResponse(f"Hello {month.capitalize()}!")
+    return HttpResponseNotFound('This month is not supported!')
