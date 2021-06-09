@@ -3,7 +3,7 @@ import calendar
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
-from django.template.loader import render_to_string
+
 
 MONTHS = [calendar.month_name[i].lower() for i in range(1, 13)]
 
@@ -32,5 +32,5 @@ def monthly_challenge(request, month):
 
 
 def test_rendering_template(request):
-    return HttpResponse(render_to_string('challenges/test.html'))
+    return render(request, "challenges/test.html")
 
