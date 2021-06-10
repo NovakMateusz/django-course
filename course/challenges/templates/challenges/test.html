@@ -14,7 +14,7 @@
     <ul>
         {% for month in months %}
             <li>
-                <a href="">{{ month }}</a>
+                <a href="{% url 'month-challenges' month=month %}">{{ month }}</a>
             </li>
         {% endfor %}
     </ul>
