@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block content %}
+    {% include "./includes/header.html" %}
+
     <h1>{{ title }}</h1>
     {% if text is not None %}
         <p>{{ text }}</p>
