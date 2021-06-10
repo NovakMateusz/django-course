@@ -32,5 +32,9 @@ def monthly_challenge(request, month):
 
 
 def test_rendering_template(request):
-    return render(request, "challenges/test.html")
+    content = {
+        'title': "Website title",
+        'text': "This is a sample message",
+    }
+    return render(request, "challenges/test.html", content)
 
