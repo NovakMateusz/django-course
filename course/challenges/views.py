@@ -35,7 +35,8 @@ def test_rendering_template(request):
     content = {
         "title": "Website title",
         "text": "This is a sample message",
-        "text_lowercase": "this is another sample message"
+        "text_lowercase": "this is another sample message",
+        "months": MONTHS
     }
     return render(request, "challenges/test.html", content)
 
