@@ -1,7 +1,7 @@
 import calendar
 
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, Http404
 from django.urls import reverse
 
 
@@ -22,13 +22,13 @@ def monthly_challenge_by_number(request, month):
         redirect_url = reverse('month-challenges', args=[month_redirect])
         return HttpResponseRedirect(redirect_url)
     except IndexError:
-        return HttpResponseNotFound('This month is not supported!')
+        raise Http404()
 
 
 def monthly_challenge(request, month):
     if month in MONTHS:
         return HttpResponse(f"Hello {month.capitalize()}!")
-    return HttpResponseNotFound('This month is not supported!')
+    raise Http404()
 
 
 def test_rendering_template(request):
